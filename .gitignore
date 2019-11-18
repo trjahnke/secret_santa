@@ -1,0 +1,14 @@
+# ENV
+.env
+.env.*
+!.env.local
+myenv/
+
+# PYTHON
+*.pyc
+__pycache__/
+
+# OTHER
+.vscode
+.DS_Store
+test.md
