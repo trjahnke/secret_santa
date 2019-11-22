@@ -1,0 +1,29 @@
+{% extends 'header.html' %}
+{% load bootstrap4 %}
+{% load fontawesome_5 %}
+
+{% block content %}
+{% bootstrap_css %}
+{% fontawesome_5_static %}
+
+
+{% if next %}
+    <div class="alert alert-danger" role="alert">You do not have access to this page!</div>
+{% endif %}
+
+<form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">Something you entered doesn't look quite right.</div>
+    {% endif %}
+
+    {{ form }}
+
+    <p><input type='submit' value='register'></p>
+    <input type='hidden' name='next' value='{{ next }}'>
+</form>
+
+
+
+{% endblock content %}
